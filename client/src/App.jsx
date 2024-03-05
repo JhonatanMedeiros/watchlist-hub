@@ -1,9 +1,9 @@
-import "./App.css";
+import { Header } from "./assets/components/Header/Header";
 
 export function App() {
   return (
-    <>
-      <h1>Hello World</h1>
-    </>
+    <div className="h-screen bg-gray-900">
+      <Header />
+    </div>
   );
 }
