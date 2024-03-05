@@ -1,4 +1,5 @@
 import * as Dialog from "@radix-ui/react-dialog";
+import { DefaultCard } from "./DefaultCard";
 
 export const Nav = () => {
   return (
@@ -33,6 +34,27 @@ export const Nav = () => {
             Entrar
           </button>
         </Dialog.Trigger>
+        <DefaultCard className="h-screen ">
+          <div className="grid grid-cols-2 text-white">
+            <h1 className="col-span-2">Conta WatchList Hub</h1>
+            <div className="col-span-2">
+              <h1>Login</h1>
+            </div>
+            <div className="col-span-2 flex flex-row">
+              <div>
+                <h1>Cria sua conta</h1>
+                <span></span>
+                <span></span>
+              </div>
+              <span>Junte-se ao WatchList Hub</span>
+            </div>
+            <div>
+              <span></span>
+            </div>
+            <div>4</div>
+            <div className="col-span-2">5</div>
+          </div>
+        </DefaultCard>
       </nav>
     </Dialog.Root>
   );
