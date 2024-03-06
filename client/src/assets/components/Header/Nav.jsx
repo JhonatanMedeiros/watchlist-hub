@@ -3,7 +3,7 @@ import * as Dialog from "@radix-ui/react-dialog";
 export const Nav = () => {
   return (
     <Dialog.Root>
-      <nav className="flex justify-around items-center position-fixed w-full text-slate-500 text-lg font-mono pt-2 px-24">
+      <nav className="flex justify-around items-center position-fixed w-full text-slate-500 text-lg font-mono pt-2">
         <a href="#">
           <img src="" alt="Logo" />
         </a>
