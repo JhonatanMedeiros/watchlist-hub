@@ -1,12 +1,9 @@
-import { type Movie } from './movies.type'
 import theMovieDB from '../../../lib/the-movie-db'
+import { type PaginationResultTdb } from '../../../lib/themoviedb/pagination-result.tdb.type'
+import { type MovieTDB } from '../../../lib/themoviedb/movie.tdb.type'
 
-const getMovies = async (): Promise<Movie[]> => {
-  // Get movies from The Movie Database API
-  const movies = await theMovieDB.getPopularMovies()
-  console.log(movies)
-  return movies
-  // return []
+const getMovies = async (page = 1): Promise<PaginationResultTdb<MovieTDB>> => {
+  return await theMovieDB.getPopularMovies(page)
 }
 
 export default {

@@ -1,11 +1,16 @@
-import { type FastifyInstance } from 'fastify'
+import { type FastifyInstance, type FastifyRequest } from 'fastify'
 import { StatusCodes } from 'http-status-codes'
 import service from './movies.service'
 
+type PopularMoviesRequest = FastifyRequest<{
+  Querystring: { page: string }
+}>
+
 export default async (app: FastifyInstance): Promise<void> => {
-  app.get('/', async (request, reply) => {
+  app.get('/', async (request: PopularMoviesRequest, reply) => {
     try {
-      const movies = await service.getMovies()
+      const page = request.query.page ? parseInt(request.query.page) : 1
+      const movies = await service.getMovies(page)
       return await reply.status(StatusCodes.OK).send(movies)
     } catch (err) {
       app.log.error(err)

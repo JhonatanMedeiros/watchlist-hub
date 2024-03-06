@@ -2,12 +2,13 @@ import {
   createSuccessServiceResult,
   type ServiceResult
 } from '../../../infrastructure/result.service'
-import { type Movie } from './movies.type'
 import repository from './movies.repository'
+import type { PaginationResultTdb } from '../../../lib/themoviedb/pagination-result.tdb.type'
+import type { MovieTDB } from '../../../lib/themoviedb/movie.tdb.type'
 
-const getMovies = async (): Promise<ServiceResult<{ movies: Movie[] }>> => {
-  const movies = await repository.getMovies()
-  return createSuccessServiceResult({ movies })
+const getMovies = async (page: number): Promise<ServiceResult<PaginationResultTdb<MovieTDB>>> => {
+  const data = await repository.getMovies(page)
+  return createSuccessServiceResult(data)
 }
 
 export default {

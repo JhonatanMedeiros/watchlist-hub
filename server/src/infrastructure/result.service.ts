@@ -8,10 +8,8 @@ export const createServiceResult = <T>(errors?: string[], data?: T): ServiceResu
   data
 })
 
-export const createErrorServiceResult = <T>(
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  ...message: string[]): ServiceResult<T> => createServiceResult<T>([...message], null!)
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+export const createErrorServiceResult = <T>(...message: string[]): ServiceResult<T> => createServiceResult<T>([...message], null!)
 
-export const createSuccessServiceResult = <T>(
-  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-  data: T): ServiceResult<T> => createServiceResult<T>(null!, data)
+// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+export const createSuccessServiceResult = <T>(data: T): ServiceResult<T> => createServiceResult<T>(null!, data)
